@@ -998,16 +998,12 @@ body {
 .feature-icon-circle {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
-  background: rgba(14, 35, 71, 0.85);
-  border: 1.5px solid var(--gold-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
   color: var(--gold-light);
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgba(223, 183, 88, 0.3);
 }
 
 .feature-title {
