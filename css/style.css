@@ -996,8 +996,8 @@ body {
 }
 
 .feature-icon-circle {
-  width: 0px;
-  height: 0px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: rgba(14, 35, 71, 0.85);
   border: 1.5px solid var(--gold-primary);
