@@ -13,7 +13,7 @@
   const WHATSAPP_PHONE = '59176185040'; // +591 76185040
 
   // 🔴 REEMPLAZA ESTA URL CON TU URL DE GOOGLE APPS SCRIPT OBTENIDA EN EL PASO 3 🔴
-  const GOOGLE_SCRIPT_URL = 'AQUÍ_PEGA_TU_URL_DE_GOOGLE_APPS_SCRIPT';
+  const GOOGLE_SCRIPT_URL = https://script.google.com/macros/s/AKfycbyo-v_T5JNGVTsFtmExZr5SyxVxHfjSr1vgfpni6jtih_vHfjhacDrbXtScU4lCN4Q/exec;
 
   function openModal() {
     if (!rsvpModal) return;
