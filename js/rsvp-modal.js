@@ -1,6 +1,6 @@
 /**
  * Gestor del Modal de Confirmación de Asistencia (RSVP)
- * Valida datos y genera enlace directo a WhatsApp con mensaje personalizado.
+ * Guarda los datos en Google Sheets y genera enlace directo a WhatsApp.
  */
 
 (function () {
@@ -11,6 +11,9 @@
 
   // Configuración de WhatsApp oficial para confirmación de asistencia
   const WHATSAPP_PHONE = '59176185040'; // +591 76185040
+
+  // 🔴 REEMPLAZA ESTA URL CON TU URL DE GOOGLE APPS SCRIPT OBTENIDA EN EL PASO 3 🔴
+  const GOOGLE_SCRIPT_URL = 'AQUÍ_PEGA_TU_URL_DE_GOOGLE_APPS_SCRIPT';
 
   function openModal() {
     if (!rsvpModal) return;
@@ -53,7 +56,7 @@
     }
   });
 
-  // Enviar a WhatsApp
+  // Enviar a Google Sheets y redirigir a WhatsApp
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -68,23 +71,60 @@
         return;
       }
 
-      let whatsappText = `✨ *CONFIRMACIÓN XV AÑOS - LUCIANA ARCE ALTAMIRANO* ✨\n\n`;
-      whatsappText += `👤 *Nombre:* ${name}\n`;
-      whatsappText += `💌 *Asistencia:* ${attendance}\n`;
-      whatsappText += `👥 *Pases / Personas:* ${guests}\n`;
+      // Deshabilitar botón y mostrar indicador de carga
+      const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>⏳ Guardando confirmación...</span>';
 
-      if (message) {
-        whatsappText += `\n💬 *Mensaje para Luciana:*\n"${message}"\n`;
-      }
+      // 1. Estructura de datos para Google Sheets
+      const sheetData = {
+        nombre: name,
+        asistencia: attendance,
+        invitados: guests,
+        mensaje: message
+      };
 
-      whatsappText += `\n🍄 _¡Nos vemos en el País de las Maravillas!_ 👑`;
+      // 2. Enviar datos a Google Sheets usando fetch
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(sheetData)
+      })
+      .then(() => {
+        // 3. Crear mensaje y abrir WhatsApp
+        let whatsappText = `✨ *CONFIRMACIÓN XV AÑOS - LUCIANA ARCE ALTAMIRANO* ✨\n\n`;
+        whatsappText += `👤 *Nombre:* ${name}\n`;
+        whatsappText += `💌 *Asistencia:* ${attendance}\n`;
+        whatsappText += `👥 *Pases / Personas:* ${guests}\n`;
 
-      const encodedText = encodeURIComponent(whatsappText);
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
+        if (message) {
+          whatsappText += `\n💬 *Mensaje para Luciana:*\n"${message}"\n`;
+        }
 
-      // Abrir WhatsApp en nueva pestaña
-      window.open(whatsappUrl, '_blank');
-      closeModal();
+        whatsappText += `\n🍄 _¡Nos vemos en el País de las Maravillas!_ 👑`;
+
+        const encodedText = encodeURIComponent(whatsappText);
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
+
+        // Abrir WhatsApp en nueva pestaña
+        window.open(whatsappUrl, '_blank');
+
+        // Restaurar estado del formulario y cerrar modal
+        rsvpForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+        closeModal();
+      })
+      .catch(error => {
+        console.error('Error al guardar en Google Sheets:', error);
+        alert('Hubo un problema registrando tu respuesta. Intenta nuevamente.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      });
     });
   }
 })();
