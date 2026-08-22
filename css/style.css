@@ -1886,4 +1886,16 @@ body {
   .audio-label {
     display: none;
   }
+   #countdown-section {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+#countdown-section .section-header {
+    margin-bottom: 1.5rem;
+}
+
+#countdown-section .countdown-container {
+    margin-bottom: 1rem;
+}
 }
