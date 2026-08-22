@@ -575,9 +575,11 @@ body {
   background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
 }
 
-.section-divider-icon {
-  color: var(--gold-light);
-  font-size: 1.2rem;
+.section-divider-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
 }
 
 /* Glass Card Global */
