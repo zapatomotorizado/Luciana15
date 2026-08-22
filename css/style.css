@@ -1892,10 +1892,11 @@ body {
 }
 
 #countdown-section .section-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 #countdown-section .countdown-container {
     margin-bottom: 1rem;
 }
+   
 }
