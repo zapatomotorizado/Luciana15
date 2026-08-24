@@ -1903,21 +1903,19 @@ body {
    ========================================================================== */
 
 .digital-panda-watermark {
-    position: fixed;
-    right: 12px;
-    bottom: 25%;
-    width: 90px;
-    opacity: 0.45;
-    z-index: 9000;
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  position: relative; /* Quita el posicionamiento fixed si lo tenía */
+  bottom: auto;
+  right: auto;
 }
 
 .digital-panda-watermark img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 60px; /* Ajusta el ancho al tamaño deseado */
+  height: auto;
 }
 
 .digital-panda-watermark:hover {
