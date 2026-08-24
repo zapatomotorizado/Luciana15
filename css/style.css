@@ -1898,27 +1898,28 @@ body {
 #countdown-section .countdown-container {
     margin-bottom: 1rem;
 }
- /* Contenedor de la marca de agua al final de la página */
+/* Contenedor de la marca de agua centrada al final */
 .digital-panda-watermark {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 30px auto 20px auto; /* Margen superior e inferior */
+  margin: 20px auto 30px auto;
   text-decoration: none;
+  overflow: hidden; /* Evita desbordamientos */
 }
 
-/* Imagen del logo Panda */
+/* Imagen reducida y ajustada */
 .digital-panda-watermark img {
-  width: 100px; /* Tamaño recomendado para que resalte la ilustración y el texto */
+  width: 70px; /* Tamaño reducido para compesar el fondo transparente */
   height: auto;
-  opacity: 0.85; /* Sutil transparencia estilo marca de agua */
+  max-width: 100%;
+  opacity: 0.85;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto hover interactivo */
 .digital-panda-watermark:hover img {
   opacity: 1;
-  transform: scale(1.08); /* Crece ligeramente al tocar o pasar el mouse */
+  transform: scale(1.08);
 }
 }
