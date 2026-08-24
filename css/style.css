@@ -495,7 +495,7 @@ body {
 
 .hero-date-highlight {
   font-family: var(--font-royal);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
   letter-spacing: 0.15em;
   color: var(--gold-light);
   margin-bottom: 2rem;
