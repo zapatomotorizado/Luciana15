@@ -1469,6 +1469,18 @@ body {
   .google-photos-info {
     text-align: center;
   }
+   .google-photos-icon {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.google-photos-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
   .btn-google-photos {
     width: 100%;
   }
