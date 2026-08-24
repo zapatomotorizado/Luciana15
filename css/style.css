@@ -1385,20 +1385,19 @@ body {
   width: 58px;
   height: 58px;
   min-width: 58px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #102d60 0%, #061124 100%);
-  border: 1.5px solid var(--gold-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: 0 0 20px rgba(223, 183, 88, 0.4);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
+
 .google-photos-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
 }
 
 .google-photos-info {
@@ -1469,18 +1468,7 @@ body {
   .google-photos-info {
     text-align: center;
   }
-   .google-photos-icon {
-    background: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-}
 
-.google-photos-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
   .btn-google-photos {
     width: 100%;
   }
