@@ -1920,6 +1920,6 @@ body {
 
 .digital-panda-watermark:hover img {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(0.5);
 }
 }
