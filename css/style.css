@@ -1898,5 +1898,30 @@ body {
 #countdown-section .countdown-container {
     margin-bottom: 1rem;
 }
-   
+ /* ==========================================================================
+   MARCA DE AGUA DIGITAL PANDA
+   ========================================================================== */
+
+.digital-panda-watermark {
+    position: fixed;
+    right: 12px;
+    bottom: 25%;
+    width: 90px;
+    opacity: 0.45;
+    z-index: 9000;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.digital-panda-watermark img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.digital-panda-watermark:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}  
 }
